@@ -10,7 +10,20 @@ async function getItemsByCategory(id) {
     return rows;
 }
 
+async function getItemById(id) {
+    const { rows } = await pool.query(
+        `SELECT items.*, categories.name AS category
+         FROM items
+         JOIN categories ON items.category_id = categories.id
+         WHERE items.id = $1
+        `,
+        [id]
+    );
+    return rows;
+}
+
 module.exports = {
     getCategories,
     getItemsByCategory,
+    getItemById,
 };
