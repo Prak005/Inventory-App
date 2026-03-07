@@ -23,8 +23,28 @@ async function createItemPost(req, res) {
     res.redirect('/');
 }
 
+async function updateItemGet(req, res) {
+    const id = req.params.id;
+    const item = await db.getItemById(id);
+    const categories = await db.getCategories();
+    res.render('itemForm', {
+        title: 'Update Item',
+        item: item,
+        categories: categories,
+    });
+}
+
+async function updateItemPost(req, res) {
+    const id = req.params.id;
+    const { name, description, brand, price, stock, category } = req.body;
+    await db.updateItem(id, name, description, brand, price, stock, category);
+    res.redirect(`/items/${id}`);
+}
+
 module.exports = {
     itemDetail,
     createItemGet,
     createItemPost,
+    updateItemGet,
+    updateItemPost,
 }
