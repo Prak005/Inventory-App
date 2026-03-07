@@ -8,6 +8,16 @@ async function categoryList(req, res) {
     });
 }
 
+async function categoryItems(req, res) {
+    const categoryId = req.params.id;
+    const items = await db.getItemsByCategory(categoryId);
+    res.render('category', {
+        title: 'Category Items',
+        items: items,
+    });
+}
+
 module.exports = {
     categoryList,
+    categoryItems,
 };
