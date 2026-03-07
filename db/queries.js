@@ -15,8 +15,7 @@ async function getItemById(id) {
         `SELECT items.*, categories.name AS category
          FROM items
          JOIN categories ON items.category_id = categories.id
-         WHERE items.id = $1
-        `,
+         WHERE items.id = $1`,
         [id]
     );
     return rows[0];
@@ -30,9 +29,18 @@ async function insertItem(name, description, brand, price, stock, category_id) {
     );
 }
 
+async function updateItem(name, description, brand, price, stock, category_id) {
+    await pool.query(
+        `UPDATE items
+         SET name=$1, description=$2, brand=$3, price=$4, stock=$5, category_id=$6 WHERE id=$7`,
+         [name, description, brand, price, stock, category_id, id]
+    );
+}
+
 module.exports = {
     getCategories,
     getItemsByCategory,
     getItemById,
     insertItem,
+    updateItem,
 };
