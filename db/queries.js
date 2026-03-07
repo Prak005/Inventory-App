@@ -19,7 +19,7 @@ async function getItemById(id) {
         `,
         [id]
     );
-    return rows;
+    return rows[0];
 }
 
 async function insertItem(name, description, brand, price, stock, category_id) {
