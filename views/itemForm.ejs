@@ -4,7 +4,7 @@
     </head>
     <body>
         <h1><%= title %></h1>
-        <form action="/item/create" method="POST">
+        <form action="/items/create" method="POST">
             <label for="name">Name</label>
             <input name="name" required>
             <br>
@@ -15,10 +15,10 @@
             <input name="brand">
             <br>
             <label for="price">Price</label>
-            <input name="price" required>
+            <input type="number" name="price" required>
             <br>
             <label for="stock">Stock</label>
-            <input name="stock">
+            <input type="number" name="stock" required>
             <br>
             <label for="category">Category</label>
             <select name="category">
