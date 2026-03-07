@@ -4,5 +4,6 @@ const indexRouter = Router();
 const categoryController = require('../controllers/categoryController');
 
 indexRouter.get('/', categoryController.categoryList);
+indexRouter.get('/category/:id', categoryController.categoryItems);
 
 module.exports = indexRouter;
