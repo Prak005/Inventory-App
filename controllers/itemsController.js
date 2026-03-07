@@ -3,7 +3,7 @@ const db = require('../db/queries');
 async function itemDetail(req, res) {
     const id = req.params.id;
     const item = await db.getItemById(id);
-    res.render('item', {
+    res.render('items', {
         title: item.name,
         item: item,
     });
