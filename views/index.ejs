@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title><%= title %></title>
+    </head>
+    <body>
+        <h1><%= title%></h1>
+        <h2>Categories</h2>
+        <ul>
+            <% categories.forEach(category => { %>
+                <li><%= category.name %></li>
+            <% }) $>
+        </ul>
+    </body>
+</html>
