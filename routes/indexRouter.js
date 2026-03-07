@@ -6,8 +6,8 @@ const itemsController = require('../controllers/itemsController');
 
 indexRouter.get('/', categoryController.categoryList);
 indexRouter.get('/category/:id', categoryController.categoryItems);
-indexRouter.get('/items/:id', itemsController.itemDetail);
 indexRouter.get('/items/create', itemsController.createItemGet);
-indexRouter.get('/items/create', itemsController.createItemPost);
+indexRouter.post('/items/create', itemsController.createItemPost);
+indexRouter.get('/items/:id', itemsController.itemDetail);
 
 module.exports = indexRouter;
