@@ -9,6 +9,22 @@ async function itemDetail(req, res) {
     });
 }
 
+async function createItemGet(req, res) {
+    const categories = await db.getCategories();
+    res.render('itemForm', {
+        title: 'Create Item',
+        categories: categories,
+    });
+}
+
+async function createItemPost(req, res) {
+    const { name, description, brand, price, stock, category } = req.body;
+    await db.insertItem(name, description, brand, price, stock, category);
+    res.redirect('/');
+}
+
 module.exports = {
     itemDetail,
+    createItemGet,
+    createItemPost,
 }
