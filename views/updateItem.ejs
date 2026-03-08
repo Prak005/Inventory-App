@@ -23,7 +23,7 @@
             <label for="category">Category</label>
             <select name="category" id="category">
                 <% categories.forEach(category => {%>
-                    <option value="<%= category.id %> <%= category.id === item.category_id ? 'selected' : '' %>">
+                    <option value="<%= category.id %>" <%= category.id === item.category_id ? 'selected' : '' %> >
                         <%= category.name %>
                     </option>
                 <% }) %>

@@ -9,7 +9,11 @@
         <p><strong>Price: </strong><%= item.price %></p>
         <p><strong>Stock: </strong><%= item.stock %></p>
         <p><strong>Category: </strong><%= item.category %></p>
-
+        <br>
+        <a href="/items/<%= item.id %>/update">Update Item</a>
+        <br>
+        <a href="/category/<%= item.category_id %>">Back to category items</a>
+        <br>
         <a href="/">Back to categories</a>
     </body>
 </html>
