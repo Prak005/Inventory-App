@@ -6,7 +6,7 @@ async function getCategories() {
 }
 
 async function getItemsByCategory(id) {
-    const { rows } = await pool.query('SELECT * FROM items WHERE id=$1', [id]);
+    const { rows } = await pool.query('SELECT * FROM items WHERE category_id=$1', [id]);
     return rows;
 }
 
