@@ -43,8 +43,9 @@ async function updateItemPost(req, res) {
 
 async function deleteItemPost(req, res) {
     const id = req.params.id;
+    const item = await db.getItemById(id);
     await db.deleteItem(id);
-    res.redirect(`/`);
+    res.redirect(`/category/${item.category_id}`);
 }
 
 module.exports = {
