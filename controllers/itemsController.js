@@ -27,7 +27,7 @@ async function updateItemGet(req, res) {
     const id = req.params.id;
     const item = await db.getItemById(id);
     const categories = await db.getCategories();
-    res.render('itemForm', {
+    res.render('updateItem', {
         title: 'Update Item',
         item: item,
         categories: categories,
