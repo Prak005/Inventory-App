@@ -13,6 +13,8 @@ indexRouter.post('/items/create', itemsController.createItemPost);
 indexRouter.get('/items/:id/update', itemsController.updateItemGet);
 indexRouter.post('/items/:id/update', itemsController.updateItemPost);
 
+indexRouter.post('/items/:id/delete', itemsController.deleteItemPost);
+
 indexRouter.get('/items/:id', itemsController.itemDetail);
 
 module.exports = indexRouter;
