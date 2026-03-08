@@ -29,7 +29,7 @@ async function insertItem(name, description, brand, price, stock, category_id) {
     );
 }
 
-async function updateItem(name, description, brand, price, stock, category_id) {
+async function updateItem(id, name, description, brand, price, stock, category_id) {
     await pool.query(
         `UPDATE items
          SET name=$1, description=$2, brand=$3, price=$4, stock=$5, category_id=$6 WHERE id=$7`,
