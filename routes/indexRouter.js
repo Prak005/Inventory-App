@@ -9,6 +9,9 @@ indexRouter.get('/', categoryController.categoryList);
 indexRouter.get('/category/create', categoryController.createCategoryGet);
 indexRouter.post('/category/create', categoryController.createCategoryPost);
 
+indexRouter.get('/category/:id/update', categoryController.updateCategoryGet);
+indexRouter.post('/category/:id/update', categoryController.updateCategoryPost);
+
 indexRouter.get('/category/:id', categoryController.categoryItems);
 
 
