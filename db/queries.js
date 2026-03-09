@@ -43,6 +43,13 @@ async function deleteItem(id) {
     );
 }
 
+async function getCategoryById(id) {
+    const { rows } = await pool.query(
+        `SELECT * FROM categories WHERE id=$1`,[id]
+    );
+    return rows[0];
+}
+
 async function insertCategory(name, description) {
     await pool.query(
         `INSERT INTO categories (name, description)
