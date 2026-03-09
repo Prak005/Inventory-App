@@ -51,6 +51,14 @@ async function insertCategory(name, description) {
     );
 }
 
+async function updateCategory(id, name, description) {
+    await pool.query(
+        `UPDATE categories
+         SET name=$1, description=$2
+         WHERE id=$3`, [name, description, id]
+    );
+}
+
 module.exports = {
     getCategories,
     getItemsByCategory,
@@ -59,4 +67,5 @@ module.exports = {
     updateItem,
     deleteItem,
     insertCategory,
+    updateCategory,
 };
