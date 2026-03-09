@@ -5,7 +5,12 @@ const categoryController = require('../controllers/categoryController');
 const itemsController = require('../controllers/itemsController');
 
 indexRouter.get('/', categoryController.categoryList);
+
+indexRouter.get('/category/create', categoryController.createCategoryGet);
+indexRouter.post('/category/create', categoryController.createCategoryPost);
+
 indexRouter.get('/category/:id', categoryController.categoryItems);
+
 
 indexRouter.get('/items/create', itemsController.createItemGet);
 indexRouter.post('/items/create', itemsController.createItemPost);
