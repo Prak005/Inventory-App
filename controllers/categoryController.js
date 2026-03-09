@@ -17,7 +17,21 @@ async function categoryItems(req, res) {
     });
 }
 
+async function createCategoryGet(req, res) {
+    res.render('createCategory', {
+        title: 'Create Category'
+    });
+}
+
+async function createCategoryPost(req, res) {
+    const { name, description } = req.body;
+    await db.insertCategory(name, description);
+    res.redirect('/');
+}
+
 module.exports = {
     categoryList,
     categoryItems,
+    createCategoryGet,
+    createCategoryPost,
 };
