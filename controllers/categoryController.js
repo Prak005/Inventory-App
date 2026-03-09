@@ -29,9 +29,27 @@ async function createCategoryPost(req, res) {
     res.redirect('/');
 }
 
+async function updateCategoryGet(req, res) {
+    const id = req.params.id;
+    const category = await db.getCategoryById(id);
+    res.render('updateCategory', {
+        title:'Update Category',
+        category: category
+    });
+}
+
+async function updateCategoryPost(req, res){
+    const id = req.params.id;
+    const { name, description } = req.body;
+    await db.updateCategory(id, name, description);
+    res.redirect(`/category/${id}`);
+}
+
 module.exports = {
     categoryList,
     categoryItems,
     createCategoryGet,
     createCategoryPost,
+    updateCategoryGet,
+    updateCategoryPost,
 };
