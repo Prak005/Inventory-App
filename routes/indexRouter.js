@@ -12,7 +12,10 @@ indexRouter.post('/category/create', categoryController.createCategoryPost);
 indexRouter.get('/category/:id/update', categoryController.updateCategoryGet);
 indexRouter.post('/category/:id/update', categoryController.updateCategoryPost);
 
+indexRouter.post('/category/:id/delete', categoryController.deleteCategoryPost);
+
 indexRouter.get('/category/:id', categoryController.categoryItems);
+
 
 
 indexRouter.get('/items/create', itemsController.createItemGet);
