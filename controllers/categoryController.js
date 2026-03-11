@@ -11,9 +11,11 @@ async function categoryList(req, res) {
 async function categoryItems(req, res) {
     const categoryId = req.params.id;
     const items = await db.getItemsByCategory(categoryId);
+    const category = await db.getCategoryById(categoryId);
     res.render('category', {
         title: 'Category Items',
         items: items,
+        category: category,
     });
 }
 
