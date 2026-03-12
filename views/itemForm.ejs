@@ -4,34 +4,36 @@
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
-        <h1><%= title %></h1>
-        <form action="/items/create" method="POST">
-            <label for="name">Name</label>
-            <input name="name" required>
-            <br>
-            <label for="description">Description</label>
-            <input name="description">
-            <br>
-            <label for="brand">Brand</label>
-            <input name="brand">
-            <br>
-            <label for="price">Price</label>
-            <input type="number" name="price" required>
-            <br>
-            <label for="stock">Stock</label>
-            <input type="number" name="stock" required>
-            <br>
-            <label for="category">Category</label>
-            <select name="category">
-                <% categories.forEach(category => {%>
-                    <option value="<%= category.id %>">
-                        <%= category.name %>
-                    </option>
-                <% }) %>
-            </select>
-            <br>
-            <button type="submit">Create Item</button>
-        </form>
-        <a href="/">Back to categories</a>
+        <%- include('partials/navbar') %>
+        <div class="container">
+            <h1><%= title %></h1>
+            <form action="/items/create" method="POST">
+                <label for="name">Name</label>
+                <input name="name" required>
+                <br>
+                <label for="description">Description</label>
+                <input name="description">
+                <br>
+                <label for="brand">Brand</label>
+                <input name="brand">
+                <br>
+                <label for="price">Price</label>
+                <input type="number" name="price" required>
+                <br>
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" required>
+                <br>
+                <label for="category">Category</label>
+                <select name="category">
+                    <% categories.forEach(category => {%>
+                        <option value="<%= category.id %>">
+                            <%= category.name %>
+                        </option>
+                    <% }) %>
+                </select>
+                <br>
+                <button type="submit">Create Item</button>
+            </form>
+        </div>
     </body>
 </html>

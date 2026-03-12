@@ -4,21 +4,22 @@
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
-        <h1><%= title %></h1>
-        <p><strong>Brand: </strong><%= item.brand %></p>
-        <p><strong>Description: </strong><%= item.description %></p>
-        <p><strong>Price: </strong><%= item.price %></p>
-        <p><strong>Stock: </strong><%= item.stock %></p>
-        <p><strong>Category: </strong><%= item.category %></p>
-        <br>
-        <form action="/items/<%= item.id %>/update" method="GET">
-            <button type="submit">Update Item</button>
-        </form>
-        <form action="/items/<%= item.id %>/delete" method="POST">
-            <button type="submit">Delete Item</button>
-        </form>
-        <a href="/category/<%= item.category_id %>">Back to category items</a>
-        <br>
-        <a href="/">Back to categories</a>
+        <%- include('partials/navbar') %>
+        <div class="container">
+            <h1><%= title %></h1>
+            <p><strong>Brand: </strong><%= item.brand %></p>
+            <p><strong>Description: </strong><%= item.description %></p>
+            <p><strong>Price: </strong><%= item.price %></p>
+            <p><strong>Stock: </strong><%= item.stock %></p>
+            <p><strong>Category: </strong><%= item.category %></p>
+            <br>
+            <form action="/items/<%= item.id %>/update" method="GET">
+                <button type="submit">Update Item</button>
+            </form>
+            <form action="/items/<%= item.id %>/delete" method="POST">
+                <button type="submit">Delete Item</button>
+            </form>
+            <a href="/category/<%= item.category_id %>">Back to category items</a>
+        </div>
     </body>
 </html>
