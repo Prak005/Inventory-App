@@ -1,7 +1,7 @@
 <html>
     <head>
         <title><%= title %></title>
-        <link rel="stylesheet" href="/styles">
+        <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
         <%- include('partials/navbar') %>
@@ -12,7 +12,7 @@
                     <label for="name">Name</label>
                     <input name="name" id="name" value="<%= item.name %>" required />
                 </div>
-                <div class="from-row">
+                <div class="form-row">
                     <label for="description">Description</label>
                     <input name="description" id="description" value="<%= item.description %>">
                 </div>
