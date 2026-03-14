@@ -49,8 +49,23 @@ async function updateCategoryPost(req, res){
 
 async function deleteCategoryPost(req, res) {
     const id = req.params.id;
-    await db.deleteCategory(id);
-    res.redirect('/');
+    try{
+        await db.deleteCategory(id);
+        res.redirect('/');
+    } catch (err) {
+        if(err.code === '23503') {
+            const items = await db.getItemsByCategory(id);
+            const category = await db.getCategoryById(id);
+            res.render('category', {
+                title: 'Category Items',
+                items: items,
+                category: category,
+                error: `Cannot delete category. First delete all items`,
+            });
+        } else {
+            throw err;
+        }
+    }
 }
 
 module.exports = {

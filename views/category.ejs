@@ -7,6 +7,11 @@
         <%- include('partials/navbar') %>
         <div class="container">
             <h1><%= category.name %></h1>
+            <% if(error) { %>
+                <div class="error-box">
+                    <p><%= error %></p>
+                </div>
+            <% } %>
             <ul>
                 <% items.forEach(item => { %>
                     <li>
