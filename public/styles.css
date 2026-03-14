@@ -103,3 +103,12 @@ a:hover {
     flex: 1;
     padding: 8px;
 }
+
+.error-box {
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    color: #7f1d1d;
+}
