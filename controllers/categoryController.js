@@ -53,7 +53,7 @@ async function deleteCategoryPost(req, res) {
         await db.deleteCategory(id);
         res.redirect('/');
     } catch (err) {
-        if(err.code === '23503') {
+        if(err.code === '23001') {
             const items = await db.getItemsByCategory(id);
             const category = await db.getCategoryById(id);
             res.render('category', {
@@ -63,6 +63,7 @@ async function deleteCategoryPost(req, res) {
                 error: `Cannot delete category. First delete all items`,
             });
         } else {
+            console.log(err);
             throw err;
         }
     }
