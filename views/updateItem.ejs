@@ -8,30 +8,36 @@
         <div class="container">
             <h1><%= title %></h1>
             <form action="/items/<%= item.id %>/update" method="POST">
-                <label for="name">Name</label>
-                <input name="name" id="name" value="<%= item.name %>" required />
-                <br>
-                <label for="description">Description</label>
-                <input name="description" id="description" value="<%= item.description %>">
-                <br>
-                <label for="brand">Brand</label>
-                <input name="brand" id="brand" value="<%= item.brand %>">
-                <br>
-                <label for="price">Price</label>
-                <input type="number" name="price" id="price" value="<%= item.price %>" required>
-                <br>
-                <label for="stock">Stock</label>
-                <input type="number" name="stock" id="stock" value="<%= item.stock %>" required>     
-                <br>
-                <label for="category">Category</label>
-                <select name="category" id="category">
-                    <% categories.forEach(category => {%>
-                        <option value="<%= category.id %>" <%= category.id === item.category_id ? 'selected' : '' %> >
-                            <%= category.name %>
-                        </option>
-                    <% }) %>
-                </select>
-                <br>
+                <div class="form-row">
+                    <label for="name">Name</label>
+                    <input name="name" id="name" value="<%= item.name %>" required />
+                </div>
+                <div class="from-row">
+                    <label for="description">Description</label>
+                    <input name="description" id="description" value="<%= item.description %>">
+                </div>
+                <div class="form-row">
+                    <label for="brand">Brand</label>
+                    <input name="brand" id="brand" value="<%= item.brand %>">
+                </div>
+                <div class="form-row">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" id="price" value="<%= item.price %>" required>
+                </div>
+                <div class="form-row">
+                    <label for="stock">Stock</label>
+                    <input type="number" name="stock" id="stock" value="<%= item.stock %>" required>     
+                </div>
+                <div class="form-row">
+                    <label for="category">Category</label>
+                    <select name="category" id="category">
+                        <% categories.forEach(category => {%>
+                            <option value="<%= category.id %>" <%= category.id === item.category_id ? 'selected' : '' %> >
+                                <%= category.name %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
                 <button type="submit">Update Item</button>
             </form>
             <a href="/items/<%= item.id %>">Back to Item</a>

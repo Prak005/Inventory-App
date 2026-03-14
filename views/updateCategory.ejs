@@ -8,12 +8,14 @@
         <div class="container">
             <h1><%= title %></h1>
             <form action="/category/<%= category.id %>/update" method="POST">
-                <label for="name">Name</label>
-                <input name="name" value="<%= category.name %>" required />
-                <br>
-                <label for="description">Description</label>
-                <input name="description" value="<%= category.description %>" />
-                <br>
+                <div class="form-row">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" value="<%= category.name %>" required />
+                </div>
+                <div class="from-row">
+                    <label for="description">Description</label>
+                    <input id="description" name="description" value="<%= category.description %>" />
+                </div>
                 <button type="submit">Update Category</button>
             </form>
         </div>
